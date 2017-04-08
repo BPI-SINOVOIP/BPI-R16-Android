@@ -1,0 +1,3 @@
+1、IPTV文件夹下提供了两套demo，分别是demo文件夹和iptvplayertest文件夹。
+2、其中demo文件夹是在android4.4上使用的，使用时将其中Android.mk.d文件重命名为Android.mk，并打上文件夹中提供的iptvDemo.patch即可。
+3、iptvplayertest文件夹曾在android4.2上使用，但由于目前CTC_mediaporcessor的接口已有调整，iptvplayertest文件夹虽保留但仅供参考，另外iptvplayer.doc是针对iptvplayertest的说明
