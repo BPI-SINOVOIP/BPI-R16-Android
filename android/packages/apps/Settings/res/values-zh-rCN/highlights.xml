@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="highlights_settings_title">亮点</string>
+    <string name="screenrecord_settings_title">屏幕录制</string>
+    <string name="screenrecord_video_title">视频</string>
+    <string name="screenrecord_audio_title">音频</string>
+
+    <string name="video_size">分辨率</string>
+	<!--<string name="video_bitrate">码率</string>-->
+    <string name="video_time_limit">时间</string>
+    <string name="audio_source">音频源</string>
+
+    <string-array name="video_size_entries">
+        <item>默认</item>
+        <item>480x320</item>
+        <item>720x480</item>
+        <item>1080x720</item>
+        <item>320x480</item>
+        <item>480x720</item>
+        <item>720x1080</item>
+    </string-array>
+
+    <string-array name="video_time_limit_entries">
+        <item>默认</item>
+        <item>15秒</item>
+        <item>30秒</item>
+        <item>1分钟</item>
+        <item>2分钟</item>
+        <item>5分钟</item>
+        <item>10分钟</item>
+        <item>30分钟</item>
+        <item>1小时</item>
+        <item>24小时</item>
+    </string-array>
+
+    <!--
+    AUDIO_SOURCE_DEFAULT             = 0,
+    AUDIO_SOURCE_MIC                 = 1,
+    AUDIO_SOURCE_VOICE_UPLINK        = 2,
+    AUDIO_SOURCE_VOICE_DOWNLINK      = 3,
+    AUDIO_SOURCE_VOICE_CALL          = 4,
+    AUDIO_SOURCE_CAMCORDER           = 5,
+    AUDIO_SOURCE_VOICE_RECOGNITION   = 6,
+    AUDIO_SOURCE_VOICE_COMMUNICATION = 7,
+    AUDIO_SOURCE_REMOTE_SUBMIX       = 8,
+    AUDIO_SOURCE_AF                  = 9
+    -->
+    <string-array name="audio_source_entries">
+        <item>无声音</item>
+        <item>麦克风</item>
+        <item>系统声音</item>
+    </string-array>
+</resources>

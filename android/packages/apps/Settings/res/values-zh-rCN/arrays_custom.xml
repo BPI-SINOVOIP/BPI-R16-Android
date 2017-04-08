@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+ <resources>
+   <!-- ListPreference accelerometer coornadite -->
+   <string-array name="accelerometer_entries">
+       <item >默认坐标系</item>
+       <item >特殊坐标系,用于支持某些游戏</item>
+   </string-array>
+ 
+   <string-array name="accelerometer_summaries">
+       <item >使用默认坐标系</item>
+       <item >使用特殊坐标系以便支持某些游戏</item>
+   </string-array>
+</resources>

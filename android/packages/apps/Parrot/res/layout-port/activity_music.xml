@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <LinearLayout 
+        android:id="@+id/linearlayout_bt_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+        <Button 
+            android:id="@+id/pre_bt_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/previous"/>
+        <Button 
+            android:id="@+id/play_bt_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/play"/>
+        <Button 
+             android:id="@+id/next_bt_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/next"/>
+    </LinearLayout>
+    
+    <SeekBar 
+	    android:id="@+id/seekbar_id"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginBottom="20dp"
+       	android:layout_above="@id/linearlayout_bt_id"/>
+    
+    <RelativeLayout 
+        android:id="@+id/time_relativelayout_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/seekbar_id">
+        <TextView 
+            android:id="@+id/start_time_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"/>
+        <TextView 
+            android:id="@+id/end_time_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+    
+    <ListView 
+        android:id="@+id/music_list_id"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_above="@id/time_relativelayout_id"/>
+	
+	<TextView 
+	    android:id="@+id/music_name_textview_id"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_toRightOf="@id/music_list_id"
+	    android:layout_above="@id/time_relativelayout_id"
+	    android:gravity="center"
+	    android:textSize="30sp"/>
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <resources>
+     <!-- ListPreference accelerometer coornadite -->
+     <string-array name="accelerometer_entries">
+         <item >Default coordinate system</item>
+         <item >Special coordinate system, to support some other games.</item>
+     </string-array>
+ 
+     <string-array name="accelerometer_values">
+         <item >default</item>
+         <item >special</item>
+     </string-array>
+ 
+     <string-array name="accelerometer_summaries">
+         <item >Accelerometer uses the default coordinate system.</item>
+         <item >Accelerometer uses a special coordinate system, for some games.</item>
+     </string-array>
+</resources>

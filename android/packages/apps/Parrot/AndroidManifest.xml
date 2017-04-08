@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.aw.parrot"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    
+    <application
+        android:name="com.aw.parrot.MainApplication"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" 
+        android:hardwareAccelerated="true"
+		android:supportsRtl="true">
+		<meta-data
+            android:name="app_key"
+            android:value="8062d976e715d779c5af27d20efdd3f0" />
+        <meta-data
+            android:name="pack_id"
+            android:value="com.tybofone.loudspeaker.box" />
+        
+        <activity
+            android:name="com.aw.parrot.MainActivity"
+            android:label="@string/app_name" 
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.MONKEY"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.aw.parrot.MusicActivity">
+        </activity>
+        <activity 
+            android:name="com.aw.parrot.AlertActivity">
+        </activity>
+        <service 
+            android:name="com.aw.parrot.MainService"
+            android:enabled="true"
+            android:persistent="true">
+            <intent-filter android:priority="1000"/>
+        </service>
+        
+        <!-- 
+        <receiver 
+            android:name="com.aw.parrot.BootReceiver"
+            android:enabled="true"
+            android:process=":boot">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+         -->
+         
+        <receiver 
+            android:name="com.aw.parrot.StatusReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.broadcom.bt.avrcp.profile.action.CONNECTION_STATE_CHANGED" />
+                <action android:name="action.dlna.play" />
+                <action android:name="action.dlna.stop" />
+                <action android:name="action.dlna.pause" />
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.unisound.sim.common.service.musicservice.MusicService"
+            android:exported="false" >
+        </service>
+        <service
+            android:name="com.unisound.sim.common.service.alartservice.alertnotify.SmartAlarmsService"
+            android:exported="false" >
+        </service>
+
+        <receiver android:name="com.unisound.sim.common.service.alartservice.alertnotify.SmartAlarmsReceiver" >
+            <intent-filter>
+                <action android:name="cn.yunzhisheng.sim.REPEAT_START_APP" />
+                <action android:name="cn.yunzhisheng.smartsoundbox.receiver.alarmreached"/>
+                <action android:name="action_alarm_reached"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+            </intent-filter>
+        </receiver>
+        <provider
+            android:name="com.unisound.sim.common.service.alartservice.db.TaskProvider"
+            android:authorities="cn.yunzhisheng.smartsoundbox.db" />
+        
+    </application>
+
+</manifest>

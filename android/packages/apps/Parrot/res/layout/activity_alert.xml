@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <LinearLayout 
+        android:id="@+id/bt_linear_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+        <Button 
+            android:id="@+id/hand_bt_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="@string/add_by_hand"
+            android:textSize="25sp"
+            android:layout_margin="10dp"
+            android:padding="10dp"/>
+        <Button 
+            android:id="@+id/speak_bt_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="@string/add_by_speak"
+            android:textSize="25sp"
+            android:layout_margin="10dp"
+            android:padding="10dp"/>
+        <Button 
+            android:id="@+id/stop_alert_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="@string/stop_alert"
+            android:textSize="25sp"
+            android:layout_margin="10dp"
+            android:padding="10dp"/>
+    </LinearLayout>
+    <ListView 
+        android:id="@+id/alert_list_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/bt_linear_id"/>
+    
+</RelativeLayout>

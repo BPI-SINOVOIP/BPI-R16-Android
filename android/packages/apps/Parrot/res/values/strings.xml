@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Parrot</string>
+    <string name="action_start">start service</string>
+    <string name="music">music</string>
+	<string name="alert">alert</string>
+    <string name="airkiss">AirKiss</string>
+    <string name="play">play</string>
+    <string name="pause">pause</string>
+    <string name="previous">previous</string>
+    <string name="next">next</string>
+    
+    <string name="add_by_hand">add by hand</string>
+    <string name="add_by_speak">add by speak</string>
+    <string name="stop_alert">stop the alert</string>
+    
+    <string name="edit_alert">edit alert</string>
+    <string name="delete_alert">delete alert</string>
+    <string name="update_alert">update alert</string>
+    
+    <string name="wake_up_tip">please speak “智能音箱” to wake up</string>
+    <string name="add_task_tip">creat style：提醒我明天上午9点钟有球赛</string>
+    <string name="cancel">cancel</string>
+    <string name="done">done</string>
+    <string name="content">content item</string>
+    <string name="time">time format:2015.11.01 12:12:00</string>
+    <string name="init_service">init service</string>
+    
+</resources>

@@ -1,0 +1,20 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/music_names_item_id"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:paddingBottom="3dp"
+        android:paddingLeft="6dp"
+        android:paddingTop="3dp"
+        android:textColor="#ff000000"
+        android:textSize="20sp"
+        android:singleLine="true"
+        android:gravity="center_vertical"/>
+
+</RelativeLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="highlights_settings_title">Highlights</string>
+    <string name="screenrecord_settings_title">Screenrecord</string>
+    <string name="screenrecord_video_title">Video</string>
+    <string name="screenrecord_audio_title">Audio</string>
+
+    <string name="video_size">Resolution</string>
+	<!--<string name="video_bitrate">bitrate</string>-->
+    <string name="video_time_limit">Time limit</string>
+    <string name="audio_source">Audio source</string>
+
+    <string-array name="video_size_entries">
+        <item>default</item>
+        <item>480x320</item>
+        <item>720x480</item>
+        <item>1080x720</item>
+        <item>320x480</item>
+        <item>480x720</item>
+        <item>720x1080</item>
+    </string-array>
+    <string-array name="video_size_values" translatable="false">
+        <item></item>
+        <item>480x320</item>
+        <item>720x480</item>
+        <item>1080x720</item>
+        <item>320x480</item>
+        <item>480x720</item>
+        <item>720x1080</item>
+    </string-array>
+
+    <string-array name="video_time_limit_entries">
+        <item>default</item>
+        <item>15 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>24 hours</item>
+    </string-array>
+    <string-array name="video_time_limit_values" translatable="false">
+        <item></item>
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>300</item>
+        <item>600</item>
+        <item>1800</item>
+        <item>3600</item>
+        <item>86400</item>
+    </string-array>
+
+    <!--
+    AUDIO_SOURCE_DEFAULT             = 0,
+    AUDIO_SOURCE_MIC                 = 1,
+    AUDIO_SOURCE_VOICE_UPLINK        = 2,
+    AUDIO_SOURCE_VOICE_DOWNLINK      = 3,
+    AUDIO_SOURCE_VOICE_CALL          = 4,
+    AUDIO_SOURCE_CAMCORDER           = 5,
+    AUDIO_SOURCE_VOICE_RECOGNITION   = 6,
+    AUDIO_SOURCE_VOICE_COMMUNICATION = 7,
+    AUDIO_SOURCE_REMOTE_SUBMIX       = 8,
+    AUDIO_SOURCE_AF                  = 9
+    -->
+    <string-array name="audio_source_entries">
+        <item>NONE</item>
+        <item>MIC</item>
+        <item>SYSTEM</item>
+    </string-array>
+    <string-array name="audio_source_values" translatable="false">
+        <item></item>
+        <item>1</item>
+        <item>8</item>
+    </string-array>
+</resources>

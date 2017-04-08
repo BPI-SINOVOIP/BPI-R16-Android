@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">鹦鹉</string>
+    <string name="action_start">启动服务</string>
+    <string name="music">音乐</string>
+	<string name="alert">闹钟</string>
+    <string name="airkiss">AirKiss</string>
+    <string name="play">播放</string>
+    <string name="pause">暂停</string>
+    <string name="previous">上一首</string>
+    <string name="next">下一首</string>
+    
+    <string name="add_by_hand">手动添加</string>
+    <string name="add_by_speak">语音添加</string>
+    <string name="stop_alert">停止闹钟</string>
+    
+    <string name="edit_alert">编辑闹钟</string>
+    <string name="delete_alert">删除闹钟</string>
+    <string name="update_alert">更新闹钟</string>
+    
+    <string name="wake_up_tip">请说“智能音箱”唤醒</string>
+    <string name="add_task_tip">创建样式：提醒我明天上午9点钟有球赛</string>
+    <string name="cancel">取消</string>
+    <string name="done">完成</string>
+    <string name="content">事项</string>
+    <string name="time">格式:2015.11.01 12:12:00</string>
+    <string name="init_service">初始化服务</string>
+    
+</resources>
