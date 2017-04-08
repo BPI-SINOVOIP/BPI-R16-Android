@@ -1,0 +1,28 @@
+MCE_CLIENT_ID=$1
+MCE_SERVER_ADDR=$2
+
+if [ -z "$MCE_CLIENT_ID" ]
+then
+   MCE_ERROR=1
+fi
+
+if [ -z "$MCE_SERVER_ADDR" ]
+then
+   MCE_ERROR=1
+fi
+
+
+
+if [ "$MCE_ERROR" ]
+then
+   echo "usage: mce-connect <CLIENT_ID> <SERVER_ADDR>"
+   echo "
+    Where CLIENT_ID is a unique identifier for the client
+    Where SERVER_ADDR is MSE server address
+    "
+   exit 1
+fi
+
+MCE_ACTION="GET_MSE_INSTANCES --es CLIENT_ID $MCE_CLIENT_ID --es SERVER_ADDR $MCE_SERVER_ADDR"
+
+source include.sh

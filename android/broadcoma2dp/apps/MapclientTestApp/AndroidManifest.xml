@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright (C) 2009-2014 Broadcom Corporation
+
+   This program is the proprietary software of Broadcom Corporation and/or its
+   licensors, and may only be used, duplicated, modified or distributed
+   pursuant to the terms and conditions of a separate, written license
+   agreement executed between you and Broadcom (an "Authorized License").
+   Except as set forth in an Authorized License, Broadcom grants no license
+   (express or implied), right to use, or waiver of any kind with respect to
+   the Software, and Broadcom expressly reserves all rights in and to the
+   Software and all intellectual property rights therein.
+   IF YOU HAVE NO AUTHORIZED LICENSE, THEN YOU HAVE NO RIGHT TO USE THIS
+   SOFTWARE IN ANY WAY, AND SHOULD IMMEDIATELY NOTIFY BROADCOM AND DISCONTINUE
+   ALL USE OF THE SOFTWARE.
+
+   Except as expressly set forth in the Authorized License,
+
+   1.     This program, including its structure, sequence and organization,
+          constitutes the valuable trade secrets of Broadcom, and you shall
+          use all reasonable efforts to protect the confidentiality thereof,
+          and to use this information only in connection with your use of
+          Broadcom integrated circuit products.
+
+   2.     TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE SOFTWARE IS PROVIDED
+          "AS IS" AND WITH ALL FAULTS AND BROADCOM MAKES NO PROMISES,
+          REPRESENTATIONS OR WARRANTIES, EITHER EXPRESS, IMPLIED, STATUTORY,
+          OR OTHERWISE, WITH RESPECT TO THE SOFTWARE.  BROADCOM SPECIFICALLY
+          DISCLAIMS ANY AND ALL IMPLIED WARRANTIES OF TITLE, MERCHANTABILITY,
+          NONINFRINGEMENT, FITNESS FOR A PARTICULAR PURPOSE, LACK OF VIRUSES,
+          ACCURACY OR COMPLETENESS, QUIET ENJOYMENT, QUIET POSSESSION OR
+          CORRESPONDENCE TO DESCRIPTION. YOU ASSUME THE ENTIRE RISK ARISING OUT
+          OF USE OR PERFORMANCE OF THE SOFTWARE.
+
+   3.     TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL BROADCOM OR
+          ITS LICENSORS BE LIABLE FOR
+          (i)   CONSEQUENTIAL, INCIDENTAL, SPECIAL, INDIRECT, OR EXEMPLARY
+                DAMAGES WHATSOEVER ARISING OUT OF OR IN ANY WAY RELATING TO
+                YOUR USE OF OR INABILITY TO USE THE SOFTWARE EVEN IF BROADCOM
+                HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES; OR
+          (ii)  ANY AMOUNT IN EXCESS OF THE AMOUNT ACTUALLY PAID FOR THE
+                SOFTWARE ITSELF OR U.S. $1, WHICHEVER IS GREATER. THESE
+                LIMITATIONS SHALL APPLY NOTWITHSTANDING ANY FAILURE OF
+                ESSENTIAL PURPOSE OF ANY LIMITED REMEDY.
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.broadcom.bt.map.mce"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="19" />
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="broadcom.permission.BLUETOOTH_MAP"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.WRITE_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_MMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <uses-library android:name="com.broadcom.bt" />
+        <activity
+            android:name=".MapclientActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/app_name"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.SENDTO" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="sms" />
+                <data android:scheme="smsto" />
+                <data android:scheme="mms" />
+                <data android:scheme="mmsto" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".DeviceListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/select_device"
+            android:theme="@android:style/Theme.Holo.Dialog" />
+
+        <activity
+            android:name=".CreateSMSActivity"
+            android:label="@string/menu_settings"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:clearTaskOnLaunch="true" />
+
+         <activity
+            android:name=".PrefsActivity"
+            android:label="@string/menu_settings"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:clearTaskOnLaunch="true" />
+
+
+        <!-- BroadcastReceiver that listens for incoming SMS messages -->
+        <!--
+             Note the use of android:enabled that is linked to a bool. This will mean this receiver
+             is enabled on KitKat devices and above
+        -->
+        <receiver
+            android:name=".receiver.SmsReceiver"
+            android:enabled="@bool/hasKitKat"
+            android:permission="android.permission.BROADCAST_SMS" >
+
+            <!-- KitKat+ SMS received action -->
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_DELIVER" />
+            </intent-filter>
+        </receiver>
+
+        <!-- BroadcastReceiver that listens for incoming SMS messages -->
+        <!--
+             Note the use of android:enabled that is linked to a bool. This will mean this receiver
+             is enabled on preKitKat devices
+        -->
+        <receiver
+            android:name=".receiver.SmsReceiverLegacy"
+            android:enabled="@bool/preKitKat" >
+
+            <!-- Pre-KitKat SMS received action -->
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- BroadcastReceiver that listens for incoming MMS messages -->
+        <!--
+             Note the use of android:enabled that is linked to a bool. This will mean this receiver
+             is enabled on KitKat devices and above
+        -->
+        <receiver
+            android:name=".receiver.MmsReceiver"
+            android:enabled="@bool/hasKitKat"
+            android:permission="android.permission.BROADCAST_WAP_PUSH" >
+
+            <!-- KitKat+ MMS received action -->
+            <intent-filter>
+                <action android:name="android.provider.Telephony.WAP_PUSH_DELIVER" />
+
+                <data android:mimeType="application/vnd.wap.mms-message" />
+            </intent-filter>
+        </receiver>
+
+        <!-- BroadcastReceiver that listens for incoming MMS messages -->
+        <!--
+             Note the use of android:enabled that is linked to a bool. This will mean this receiver
+             is enabled on preKitKat devices
+        -->
+        <receiver
+            android:name=".receiver.MmsReceiverLegacy"
+            android:enabled="@bool/preKitKat" >
+
+            <!-- Pre-KitKat MMS received action -->
+            <intent-filter>
+                <action android:name="android.provider.Telephony.WAP_PUSH_RECEIVED" />
+
+                <data android:mimeType="application/vnd.wap.mms-message" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Service that delivers SMS messages received from the phone "quick response" -->
+        <service
+            android:name=".service.RespondService"
+            android:exported="true"
+            android:permission="android.permission.SEND_RESPOND_VIA_MESSAGE" >
+            <intent-filter>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="sms" />
+                <data android:scheme="smsto" />
+                <data android:scheme="mms" />
+                <data android:scheme="mmsto" />
+            </intent-filter>
+        </service>
+
+        <!-- A service used internally to process incoming SMS/MMS -->
+        <service
+            android:name=".service.MessagingService"
+            android:exported="false" />
+    </application>
+
+</manifest>

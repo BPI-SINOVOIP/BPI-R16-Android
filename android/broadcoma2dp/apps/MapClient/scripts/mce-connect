@@ -1,0 +1,33 @@
+MCE_CLIENT_ID=$1
+MCE_SERVER_ADDR=$2
+MCE_SERVER_INSTANCE_ID=$3
+
+if [ -z "$MCE_CLIENT_ID" ]
+then
+   MCE_ERROR=1
+fi
+
+if [ -z "$MCE_SERVER_ADDR" ]
+then
+   MCE_ERROR=1
+fi
+
+if [ -z "$MCE_SERVER_INSTANCE_ID" ]
+then
+   MCE_ERROR=1
+fi
+
+
+if [ "$MCE_ERROR" ]
+then
+   echo "usage: mce-connect <CLIENT_ID> <SERVER_ADDR> <SERVER_INSTANCE_ID>"
+   echo "
+    Where CLIENT_ID is a unique identifier for the client
+    Where SERVER_ADDR is MSE server address
+    Where SERVER_INSTANCE_ID is the MSE server instance"
+   exit 1
+fi
+
+MCE_ACTION="CONNECT --es CLIENT_ID $MCE_CLIENT_ID --es SERVER_ADDR $MCE_SERVER_ADDR --es SERVER_INSTANCE_ID $MCE_SERVER_INSTANCE_ID"
+
+source include.sh

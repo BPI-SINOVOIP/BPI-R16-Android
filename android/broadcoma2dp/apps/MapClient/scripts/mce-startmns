@@ -1,0 +1,27 @@
+MCE_CLIENT_ID=$1
+MCE_NS_NAME=$2
+
+if [ -z "$MCE_CLIENT_ID" ]
+then
+   MCE_ERROR=1
+fi
+
+if [ -z "$MCE_NS_NAME" ]
+then
+   MCE_ERROR=1
+fi
+
+
+if [ "$MCE_ERROR" ]
+then
+   echo "usage: mce-startmns <CLIENT_ID> <NS_NAME>"
+   echo "
+    Where CLIENT_ID is a unique identifier for the client
+    Where NS_NAME is the notification server name
+"
+   exit 1
+fi
+
+MCE_ACTION="START_MNS --es CLIENT_ID $MCE_CLIENT_ID --es NAME $MCE_NS_NAME"
+
+source include.sh

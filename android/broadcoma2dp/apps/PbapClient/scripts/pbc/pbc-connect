@@ -1,0 +1,6 @@
+PBAP_CLIENT_ACTION=connect
+
+echo "connecting to $PBAP_SERVER" ...
+
+source include.sh
+

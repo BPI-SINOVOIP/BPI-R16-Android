@@ -1,0 +1,92 @@
+PBC_NAME=$1
+PBC_SEARCH_ORDER=$2
+PBC_SEARCH_ATTR=$3
+PBC_SEARCH_VALUE=$4
+PBC_MAX_LIST_COUNT=$5
+PBC_LIST_START_OFFSET=$6
+PBC_OUTFILE_PATH=$7
+
+if [ -z "$PBC_NAME" ]
+then
+   PBC_PULL_ERROR=1
+fi
+
+if [ -z "$PBC_SEARCH_ORDER" ]
+then
+   PBC_PULL_ERROR=1
+fi
+
+if [ -z "$PBC_SEARCH_ATTR" ]
+then
+   PBC_PULL_ERROR=1
+fi
+
+if [ -z "$PBC_SEARCH_VALUE" ]
+then
+   PBC_PULL_ERROR=1
+fi
+
+if [ -z "$PBC_MAX_LIST_COUNT" ]
+then
+   PBC_PULL_ERROR=1
+fi
+
+if [ -z "$PBC_LIST_START_OFFSET" ]
+then
+   PBC_PULL_ERROR=1
+fi
+
+if [ -z "$PBC_OUTFILE_PATH" ]
+then
+   PBC_PULL_ERROR=1
+fi
+
+
+if [ "$PBC_PULL_ERROR" ]
+then
+   echo "usage: pbc-pullvlist <name> <searchOrder> <searchAttr> <searchValue>
+                     <maxListCount> <listStartOffset> <outFilepath>"
+   echo "
+    Valid <name> value are
+        'NULL': not set.. Use current path
+        OR any directory name relative to the current path
+ 
+    Valid <searchOrder> values are:
+       -1 : not set
+        0 : alphabetical
+        1 : indexed
+        2 : phonetic
+ 
+    Valid <searchAttr> values are:
+       -1 : not set
+        0 : name
+        1 : number
+        2 : sound
+ 
+    Valid <maxListCount> values are:
+       -1 : not set
+        0 : for returning list count
+        1-65535 : for n entries
+ 
+    Valid <listStartOffset> values are:
+       -1   : not set
+        0-n : for starting at offset n 
+"
+   exit 1
+fi
+
+if [ "$PBC_NAME" != "NULL" ]
+then
+   PBC_NAME_PARAM="--es name $PBC_NAME"
+fi
+
+if [ "$PBC_SEARCH_VALUE" != "NULL" ]
+then
+   PBC_SEARCH_VALUE_PARAM="--es searchValue $PBC_SEARCH_VALUE"
+fi
+
+PBAP_CLIENT_ACTION="pull_vlist $PBC_NAME_PARAM --es searchOrder $PBC_SEARCH_ORDER --es searchAttr $PBC_SEARCH_ATTR $PBC_SEARCH_VALUE_PARAM --es maxListCount $PBC_MAX_LIST_COUNT --es listStartOffset $PBC_LIST_START_OFFSET --es outFilepath $PBC_OUTFILE_PATH"
+
+#echo $PBAP_CLIENT_ACTION
+
+source include.sh

@@ -1,0 +1,48 @@
+MCE_CLIENT_ID=$1
+MCE_SERVER_INSTANCE_ID=$2
+MCE_MAXLISTCOUNT=$3
+MCE_OFFSET=$4
+MCE_RETURN_TYPE=$5
+
+if [ -z "$MCE_CLIENT_ID" ]
+then
+   MCE_ERROR=1
+fi
+
+if [ -z "$MCE_SERVER_INSTANCE_ID" ]
+then
+   MCE_ERROR=1
+fi
+
+if [ -z "$MCE_MAXLISTCOUNT" ]
+then
+   MCE_ERROR=1
+fi
+
+if [ -z "$MCE_OFFSET" ]
+then
+   MCE_ERROR=1
+fi
+
+if [ -z "$MCE_RETURN_TYPE" ]
+then
+   MCE_ERROR=1
+fi
+
+
+if [ "$MCE_ERROR" ]
+then
+   echo "usage: mce-getfolderlist <CLIENT_ID> <SERVER_INSTANCE_ID> <MAXLISTCOUNT> <OFFSET> <RETURN_TYPE>"
+   echo "
+    Where CLIENT_ID is a unique identifier for the client
+    Where SERVER_INSTANCE_ID is the MSE server instance
+    Where MAXLISTCOUNT is the maximum number of entries to return, or -1 for default
+    Where OFFSET start offset, or -1 for default
+    Where RETURN_TYPE is the returned folder list type, 0 is file, 1 is object
+"
+   exit 1
+fi
+
+MCE_ACTION="GET_FOLDER_LIST --es CLIENT_ID $MCE_CLIENT_ID --es SERVER_INSTANCE_ID $MCE_SERVER_INSTANCE_ID --es MAXLISTCOUNT $MCE_MAXLISTCOUNT --es OFFSET $MCE_OFFSET --es RETURN_TYPE $MCE_RETURN_TYPE"
+
+source include.sh

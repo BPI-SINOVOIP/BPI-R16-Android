@@ -1,0 +1,26 @@
+MCE_CLIENT_ID=$1
+MCE_SERVER_INSTANCE_ID=$2
+
+if [ -z "$MCE_CLIENT_ID" ]
+then
+   MCE_ERROR=1
+fi
+
+if [ -z "$MCE_SERVER_INSTANCE_ID" ]
+then
+   MCE_ERROR=1
+fi
+
+
+if [ "$MCE_ERROR" ]
+then
+   echo "usage: mce-getfolderpath <CLIENT_ID> <SERVER_INSTANCE_ID>"
+   echo "
+    Where CLIENT_ID is a unique identifier for the client
+    Where SERVER_INSTANCE_ID is the MSE server instance"
+   exit 1
+fi
+
+MCE_ACTION="GET_FOLDER_PATH --es CLIENT_ID $MCE_CLIENT_ID --es SERVER_INSTANCE_ID $MCE_SERVER_INSTANCE_ID"
+
+source include.sh

@@ -1,0 +1,52 @@
+MCE_CLIENT_ID=$1
+MCE_SERVER_INSTANCE_ID=$2
+MCE_MESSAGE_HANDLE=$3
+MCE_CHARSET=$4
+MCE_INCLUDE_ATTACHMENTS=$5
+
+if [ -z "$MCE_CLIENT_ID" ]
+then
+   MCE_ERROR=1
+fi
+
+if [ -z "$MCE_SERVER_INSTANCE_ID" ]
+then
+   MCE_ERROR=1
+fi
+
+if [ -z "$MCE_MESSAGE_HANDLE" ]
+then
+   MCE_ERROR=1
+fi
+
+if [ -z "$MCE_CHARSET" ]
+then
+   MCE_ERROR=1
+fi
+
+if [ -z "$MCE_INCLUDE_ATTACHMENTS" ]
+then
+   MCE_ERROR=1
+fi
+
+
+if [ "$MCE_ERROR" ]
+then
+   echo "usage: mce-getmessage <CLIENT_ID> <SERVER_INSTANCE_ID> <MESSAGE_HANDLE> <CHARSET> <INCLUDE_ATTACHMENTS>"
+   echo "
+    Where CLIENT_ID is a unique identifier for the client
+    Where SERVER_INSTANCE_ID is the MSE server instance
+    Where MESSAGE_HANDLE is the handle to the message
+    Where CHARSET is
+        0: NATIVE
+        1: UTF-8
+    Where INCLUDE_ATTACHMENTS IS
+        0: FALSE
+        1: TRUE
+"
+   exit 1
+fi
+
+MCE_ACTION="GET_MESSAGE --es CLIENT_ID $MCE_CLIENT_ID --es SERVER_INSTANCE_ID $MCE_SERVER_INSTANCE_ID --es MESSAGE_HANDLE $MCE_MESSAGE_HANDLE --es CHARSET $MCE_CHARSET --es INCLUDE_ATTACHMENTS $MCE_INCLUDE_ATTACHMENTS"
+
+source include.sh

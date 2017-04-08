@@ -1,0 +1,6 @@
+PBAP_CLIENT_ACTION=add_sdp
+
+echo "Add SDP record request to $PBAP_SERVER" ...
+
+source include.sh
+
