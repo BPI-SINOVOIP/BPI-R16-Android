@@ -4,12 +4,15 @@
 #include "starry768x1024.h"
 #include "hx8379c.h"
 
+#include "LHR050H41_MIPI_RGB.h"
+
 extern __lcd_panel_t tft720x1280_panel;
 extern __lcd_panel_t vvx10f004b00_panel;
 extern __lcd_panel_t lp907qx_panel;
 extern __lcd_panel_t sl698ph_720p_panel;
 extern __lcd_panel_t lp079x01_panel;
 extern __lcd_panel_t hx8379c_panel;
+extern __lcd_panel_t LHR050H41_MIPI_RGB_panel;
 
 __lcd_panel_t* panel_array[] = {
 	&default_panel,
@@ -21,6 +24,7 @@ __lcd_panel_t* panel_array[] = {
 	&lp079x01_panel,
 	/* add new panel below */
 	&hx8379c_panel,
+	&LHR050H41_MIPI_RGB_panel,
 
 	NULL,
 };
