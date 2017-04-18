@@ -31,6 +31,7 @@ PRODUCT_COPY_FILES += \
 	device/softwinner/bpi-m2m/configs/tp.idc:system/usr/idc/tp.idc \
 	device/softwinner/bpi-m2m/configs/gsensor.cfg:system/usr/gsensor.cfg
 
+# BPI-M2_Magic
 #copy touch and keyboard driver to recovery randisk
 PRODUCT_COPY_FILES += \
     device/softwinner/bpi-m2m/modules/modules/disp.ko:obj/disp.ko \
@@ -38,7 +39,8 @@ PRODUCT_COPY_FILES += \
     device/softwinner/bpi-m2m/modules/modules/lcd.ko:obj/lcd.ko \
     device/softwinner/bpi-m2m/modules/modules/gt82x.ko:obj/gt82x.ko \
     device/softwinner/bpi-m2m/modules/modules/gt818_ts.ko:obj/gt818_ts.ko \
-    device/softwinner/bpi-m2m/modules/modules/sw-device.ko:obj/sw-device.ko
+    device/softwinner/bpi-m2m/modules/modules/sw-device.ko:obj/sw-device.ko \
+    device/softwinner/bpi-m2m/modules/modules/gt9xxnew_ts.ko:obj/gt9xxnew_ts.ko 
 
 # ap6181/6210/6330 sdio wifi fw and nvram
 #$(call inherit-product-if-exists, hardware/broadcom/wlan/firmware/ap6181/device-bcm.mk)
@@ -175,6 +177,6 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_BRAND  := Allwinner-Tablet
 PRODUCT_NAME   := bpi_m2m
 PRODUCT_DEVICE := bpi-m2m
-PRODUCT_MODEL  := Allwinner-Tablet
+PRODUCT_MODEL  := BPI-M2-Magic
 
 include device/softwinner/polaris-common/prebuild/google/products/gms_minimal.mk
