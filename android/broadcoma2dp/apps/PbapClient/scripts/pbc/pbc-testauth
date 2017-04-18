@@ -1,6 +1,0 @@
-PBAP_CLIENT_ACTION=auth.test
-
-echo "connecting to $PBAP_SERVER" ...
-
-source include.sh
-

@@ -1,5 +1,0 @@
-PBAP_CLIENT_ACTION=disconnect
-
-echo "disconnecting to $PBAP_SERVER" ...
-
-source include.sh

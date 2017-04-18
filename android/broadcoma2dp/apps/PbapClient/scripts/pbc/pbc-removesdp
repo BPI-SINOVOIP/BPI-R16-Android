@@ -1,6 +1,0 @@
-PBAP_CLIENT_ACTION=remove_sdp
-
-echo "Remove SDP record request to $PBAP_SERVER" ...
-
-source include.sh
-

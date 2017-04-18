@@ -1,6 +1,0 @@
-on init
-    insmod /nand.ko
-    insmod /disp.ko
-    insmod /lcd.ko
-    insmod /sunxi-keyboard.ko
-	insmod /ft5x_ts.ko
