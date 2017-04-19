@@ -1,9 +1,10 @@
 # BPI-M2M Android 4.4 Source code
 ----------
-###1 Build Android BSP
+1 Build Android BSP
+
  $ cd lichee
  
-   $ ./build.sh config       
+ $ ./build.sh config       
 
 Welcome to mkscript setup progress
 All available chips:
@@ -36,7 +37,8 @@ Choice: 1
 
 ***********
 
-###2 Build Android 
+2 Build Android 
+
    $cd ../android
 
    $source build/envsetup.sh
