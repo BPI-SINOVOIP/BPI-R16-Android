@@ -27,5 +27,6 @@
     <!-- Justin Porting for BPI-M2_Magic -->
     <integer name="def_screen_off_timeout">2147483000</integer>
     <bool name="def_lockscreen_disabled">true</bool>
+    <integer name="def_screen_brightness">180</integer>
 
 </resources>

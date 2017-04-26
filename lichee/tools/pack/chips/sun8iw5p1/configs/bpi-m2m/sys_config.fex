@@ -515,8 +515,8 @@ fb1_scaler_mode_enable   = 0
 fb1_width                = 0
 fb1_height               = 0
 
-lcd0_backlight           = 50
-lcd1_backlight           = 50
+lcd0_backlight           = 180
+lcd1_backlight           = 180
 
 lcd0_bright              = 50
 lcd0_contrast            = 50
@@ -593,8 +593,8 @@ lcd_dclk_freq       = 71
 lcd_pwm_used        = 1
 lcd_pwm_ch          = 0
 lcd_pwm_freq        = 10000
-lcd_pwm_pol         = 0
-lcd_pwm_max_limit   = 150
+lcd_pwm_pol         = 1
+lcd_pwm_max_limit   = 255
 lcd_bl_en           = port:PL04<1><0><default><1>
 
 ; LCD-RST
